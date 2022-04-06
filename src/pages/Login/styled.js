@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FormDiv = styled.div`
     width: 450px;
-    height: 440px;
+    height: 350px;
     margin: 60px auto;
     display: flex;
     align-items: center;
@@ -15,7 +15,7 @@ export const InputContainer = styled.div`
     height: 40px;
     background-color: rgb(18, 18, 20);
     border-radius: 3px;
-    margin: 24px auto;
+    margin: 20px  auto;
     display: flex;
 `;
 
@@ -37,6 +37,15 @@ export const Input = styled.input`
     background-color: rgb(18, 18, 20)
 `;
 
+
+export const FormContent = styled.div`
+    width: 100%;
+`;
+
+export const ButtonsContainer = styled.div`
+    margin-top: 55px;
+`;
+
 export const ButtonFormSubmit = styled.div`
     width: 85%;
     height: 40px;
@@ -55,11 +64,7 @@ export const ButtonFormSubmit = styled.div`
     }
 `;
 
-export const FormContent = styled.div`
-    width: 100%;
-`;
-
-export const ButtonLogin = styled.div`
+export const ButtonCadastro = styled.div`
     width: 85%;
     height: 40px;
     margin: 15px auto;
@@ -77,4 +82,4 @@ export const ButtonLogin = styled.div`
     :hover {
         cursor: pointer;
     }
-`;  
+`;

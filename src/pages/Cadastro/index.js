@@ -1,14 +1,17 @@
 import axios from 'axios';
-import { FormDiv, 
+import { 
+    FormDiv, 
     FormContent,
     InputContainer,
     InputIconContainer,
     Input,
     ButtonFormSubmit,
+    ButtonLogin
 } from './styled'; 
 import { FaUser, FaEnvelope, FaKey } from 'react-icons/fa';
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer, toast } from "react-toastify";
+import { Link } from 'react-router-dom';
 
 if(window !== 'undefined') {
     injectStyle();
@@ -70,8 +73,10 @@ export default function Cadastro() {
                         </InputIconContainer>
                         <Input className="input-retypePassword" required placeholder='Retype password'/>
                     </InputContainer>
-
                     <ButtonFormSubmit onClick={cadastraUsuario}>Cadastrar-se</ButtonFormSubmit>
+                    <Link to="/auth/login">
+                        <ButtonLogin>Logar</ButtonLogin>
+                    </Link>
                 </FormContent>
             </FormDiv>
         </>
