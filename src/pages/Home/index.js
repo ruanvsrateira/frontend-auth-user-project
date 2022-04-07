@@ -1,15 +1,29 @@
 import { useEffect } from "react"
-import axios from 'axios'
+import { HomeTitle, ButtonLogOff } from './styled';
+import { Container } from "../../GlobalStyles";
+import { FaPowerOff } from 'react-icons/fa'
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+    const navigate = useNavigate();
+
     useEffect(() => {
-        axios.get("http://localhost:3333/session").then(({data}) => console.log(data))
         const session = localStorage.getItem("session");
-        console.log(Object.values(session))
-    
+
+        if(!session) {
+            navigate("/auth/login");
+        }
     }, [])
 
+    const logOff = () => {
+        localStorage.removeItem("session");
+        navigate("/auth/login");
+    };
+
     return(
-        <h1>Vc está na HOME !!! {localStorage.getItem("session")}</h1>
+        <Container>
+            <HomeTitle>Olá {localStorage.getItem("session")}, Seja bem-vindo ao nosso site !   </HomeTitle>
+            <ButtonLogOff onClick={logOff}><FaPowerOff />LogOff</ButtonLogOff>
+        </Container>
     )
 }
