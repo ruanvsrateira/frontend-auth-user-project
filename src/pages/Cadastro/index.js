@@ -11,13 +11,24 @@ import {
 import { FaUser, FaEnvelope, FaKey } from 'react-icons/fa';
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer, toast } from "react-toastify";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 if(window !== 'undefined') {
     injectStyle();
 }
 
 export default function Cadastro() {        
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const session = localStorage.getItem("session");
+
+        if(session) {
+            navigate("/home");
+        }
+    }, [])
 
     const showNotify = (text, type) => {
         if (type === "error") {
